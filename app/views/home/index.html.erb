@@ -1,3 +1,7 @@
 <h1 class="text-5xl font-bold underline">
     Hello world!
+    <% if current_patient %>
+        <%= link_to "Appointments", patients_appointments_path %>
+        <%= link_to "New Appointment", new_patients_appointment_path, method: :get %>  <!-- Corrected the path here -->
+    <% end %>
 </h1>
