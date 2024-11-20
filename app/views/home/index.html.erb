@@ -1,3 +1,42 @@
-<h1 class="text-5xl font-bold underline">
-    Hello world!
-</h1>
+<div class="min-h-screen bg-gradient-to-r from-blue-50 to-blue-100 flex flex-col items-center justify-between p-8">
+  <div class="text-center mt-16">
+    <h1 class="text-6xl font-extrabold text-blue-700">
+      Welcome to <span class="text-blue-900">The Clinic</span>
+    </h1>
+    <p class="mt-4 text-lg text-gray-600">
+      Streamlining healthcare management with ease and efficiency.
+    </p>
+  </div>
+
+  <% if current_patient %>
+    <div class="mt-12 flex flex-col items-center space-y-4">
+      <%= link_to "View Appointments", patients_appointments_path, class: "px-8 py-4 bg-blue-600 text-white text-xl font-bold rounded-lg shadow-xl hover:bg-blue-700 hover:scale-105 transition transform" %>
+      <%= link_to "Book New Appointment", new_patients_appointment_path, method: :get, class: "px-8 py-4 bg-green-500 text-white text-xl font-bold rounded-lg shadow-xl hover:bg-green-600 hover:scale-105 transition transform" %>
+    </div>
+  <% else %>
+    <div class="mt-12">
+      <%= link_to "Login as Patient", new_patient_session_path, class: "px-8 py-4 bg-blue-600 text-white text-xl font-bold rounded-lg shadow-xl hover:bg-blue-700 hover:scale-105 transition transform" %>
+    </div>
+  <% end %>
+
+  <div class="mt-24 max-w-4xl text-center">
+    <h2 class="text-3xl font-semibold text-gray-800">What we offer</h2>
+    <p class="mt-4 text-gray-600">
+      Manage your appointments, connect with doctors, and access your medical records, all in one place.
+    </p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+      <div class="p-6 bg-white shadow-md rounded-lg">
+        <h3 class="text-xl font-bold text-blue-700">Easy Appointments</h3>
+        <p class="mt-2 text-gray-500">Schedule and manage appointments effortlessly.</p>
+      </div>
+      <div class="p-6 bg-white shadow-md rounded-lg">
+        <h3 class="text-xl font-bold text-blue-700">Doctor Profiles</h3>
+        <p class="mt-2 text-gray-500">Access details and reviews of experienced doctors.</p>
+      </div>
+      <div class="p-6 bg-white shadow-md rounded-lg">
+        <h3 class="text-xl font-bold text-blue-700">Medical Records</h3>
+        <p class="mt-2 text-gray-500">Keep track of your medical history securely.</p>
+      </div>
+    </div>
+  </div>
+</div>

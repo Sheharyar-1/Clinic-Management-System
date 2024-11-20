@@ -1,0 +1,41 @@
+<div class="min-h-screen bg-gray-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+  <% if @appointment.present? %>
+    <div class="max-w-md w-full bg-white shadow-lg rounded-lg p-6">
+      <h1 class="text-2xl font-bold text-gray-800 mb-4">Appointment Details</h1>
+
+      <div class="border-t border-gray-300 py-4">
+        <p class="text-gray-600">
+          <span class="font-semibold">Doctor:</span>
+          <%= @appointment.admin.id %> 
+        </p>
+      </div>
+
+      <div class="border-t border-gray-300 py-4">
+        <p class="text-gray-600">
+          <span class="font-semibold">Patient Email:</span>
+          <%= @appointment.email %>
+        </p>
+      </div>
+
+      <div class="border-t border-gray-300 py-4">
+        <p class="text-gray-600">
+          <span class="font-semibold">Appointment Date:</span>
+          <%= @appointment.appointment_date.strftime('%B %d, %Y %I:%M %p') %>
+        </p>
+      </div>
+
+      <div class="mt-6 flex space-x-4">
+        <%= link_to "Back to Appointments", patients_appointments_path, class: "text-white bg-gray-500 hover:bg-gray-600 px-4 py-2 rounded-md" %>
+        <%= link_to "New Appointment", new_patients_appointment_path, class: "text-white bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-md" %>
+      </div>
+    </div>
+  <% else %>
+    <div class="text-center max-w-md w-full bg-white shadow-lg rounded-lg p-6">
+      <h1 class="text-2xl font-bold text-gray-800 mb-4">No Appointment Found</h1>
+      <p class="text-gray-600 mb-6">
+        You don’t have any appointments yet. Book your first appointment now!
+      </p>
+      <%= link_to "Book Appointment", new_patients_appointment_path, class: "text-white bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-md" %>
+    </div>
+  <% end %>
+</div>

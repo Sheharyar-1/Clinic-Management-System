@@ -1,0 +1,23 @@
+<h1>Appointments</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Doctor</th>
+      <th>Patient</th>
+      <th>Date</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @appointments.each do |appointment| %>
+      <tr>
+        <td><%= appointment.doctor.name %></td>
+        <td><%= appointment.patient.name %></td>
+        <td><%= appointment.appointment_date %></td>
+        <td><%= appointment.status %></td>
+        <td><%= link_to 'View', admin_appointment_path(appointment) %> | <%= link_to 'Edit', edit_admin_appointment_path(appointment) %> | <%= link_to 'Delete', admin_appointment_path(appointment), method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

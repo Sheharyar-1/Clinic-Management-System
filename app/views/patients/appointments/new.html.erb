@@ -1,0 +1,14 @@
+<h1>New Appointment</h1>
+<%= form_with model: @appointment, url: patients_appointments_path do |form| %>
+  <div>
+    <%= form.label :admin_id %>
+    <%= form.collection_select :admin_id, Admin.all, :id, :email, { prompt: "Select a Doctor" } %>
+  </div>
+  <div>
+    <%= form.label :appointment_date %>
+    <%= form.datetime_select :appointment_date %>
+  </div>
+  <div>
+    <%= form.submit 'Book Appointment' %>
+  </div>
+<% end %>
