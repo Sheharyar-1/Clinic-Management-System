@@ -3,6 +3,7 @@ class Patients::AppointmentsController < ApplicationController
 
   def index
     @appointments = current_patient.appointments
+    @appointment = current_patient.appointments.build
   end
 
   def show
