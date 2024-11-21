@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
   devise_for :admins, path: "admins", controllers: {
-    sessions: "admins/sessions"
+    sessions: "admins/sessions",
+    registrations: "admins/registrations"
+
   }
 
   devise_for :patients, path: "patients", controllers: {
-    sessions: "patients/sessions"
+    sessions: "patients/sessions",
+    registrations: "patients/registrations"
   }
 
   namespace :admins do

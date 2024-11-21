@@ -63,3 +63,5 @@ gem "tailwindcss-rails", "~> 3.0"
 gem "devise", "~> 4.9"
 
 gem "byebug", "~> 11.1"
+
+gem "whenever", "~> 1.0"
